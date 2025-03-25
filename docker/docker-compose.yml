@@ -1,0 +1,14 @@
+services:
+  dash-app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: bert-dash
+    volumes:
+      - ../app:/app
+    ports:
+      - "8050:8050"
+    restart: always
+    command: python main.py
+    tty: true
+    working_dir: /app
